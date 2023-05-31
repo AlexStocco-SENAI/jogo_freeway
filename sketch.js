@@ -43,7 +43,7 @@ class Jogador{
   }
   
   mova(){
-    image(this.imagem,this.posX, this.posY,this.largura, this.altura);
+    image(this.imagem,mouseX, mouseY,this.largura, this.altura);
     
     if((keyIsDown(38)) && (this.yInicial>0)){
       this.posY -= this.velocidade;
