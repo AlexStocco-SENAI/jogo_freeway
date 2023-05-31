@@ -42,26 +42,21 @@ class Jogador{
     this.xFinal = this.posX+this.largura;
   }
   
-  mova(){
-    image(this.imagem,mouseX, mouseY,this.largura, this.altura);
+
+    mova(){
+    let destinoX = mouseX;
+    let destinoY = mouseY;
     
-    if((keyIsDown(38)) && (this.yInicial>0)){
-      this.posY -= this.velocidade;
-    }
-    if((keyIsDown(40) && (this.yFinal<400))){
-      this.posY += this.velocidade;
-    }
-    if((keyIsDown(39)) && (this.xFinal<600)){
-      this.posX += this.velocidade;
-    }
-    if((keyIsDown(37)) && (this.xInicial>0)){
-      this.posX -= this.velocidade;
-    }
+    // Calcula a posição intermediária utilizando lerp()
+    this.posX = lerp(this.posX, destinoX, 0.05);
+    this.posY = lerp(this.posY, destinoY, 0.05);
     
+    image(this.imagem, this.posX, this.posY, this.largura, this.altura);
+      
     this.yInicial = this.posY;
     this.yFinal = this.posY + this.altura;
     this.xInicial = this.posX;
-    this.xFinal = this.posX + this.largura;
+    this.xFinal = this.posX+this.largura;
     
   }
 }
@@ -83,7 +78,7 @@ function setup() {
 }
 
 function draw() {
-  background("red");
+  background(imgEstrada);
   
   jogador.mova();
   
