@@ -83,7 +83,7 @@ function setup() {
 }
 
 function draw() {
-  background(imgEstrada);
+  background("red");
   
   jogador.mova();
   
